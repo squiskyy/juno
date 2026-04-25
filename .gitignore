@@ -1,0 +1,14 @@
+# Rust
+/target
+src-tauri/target/
+
+# Node (if used in future)
+/ui/node_modules
+/ui/dist
+
+# Logs & temps
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
