@@ -183,3 +183,15 @@ impl WorkspaceManager {
         results
     }
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn new_manager_empty() {
+        let m = WorkspaceManager::new();
+        assert!(m.list_folders().is_empty());
+    }
+}

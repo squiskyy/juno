@@ -37,3 +37,23 @@ pub struct ToolStatus {
     pub enabled: bool,
     pub available: bool,
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn folder_info_serde() {
+        let f = FolderInfo {
+            path: "/tmp/test".into(),
+            name: "test".into(),
+            file_count: 42,
+            included: true,
+        };
+        let json = serde_json::to_string(&f).unwrap();
+        let back: FolderInfo = serde_json::from_str(&json).unwrap();
+        assert_eq!(back.name, "test");
+        assert_eq!(back.file_count, 42);
+    }
+}
